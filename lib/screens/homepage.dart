@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_firebase_auth/screens/signin.dart';
-import 'package:flutter_firebase_auth/screens/signup.dart';
-import 'package:flutter_firebase_auth/utils/authentication.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -43,12 +40,7 @@ class _HomePageState extends State<HomePage> {
                     backgroundColor: MaterialStateProperty.all(Colors.black45),
                   ),
                   onPressed: () {
-                    //sign out
-                    SchedulerBinding.instance.addPostFrameCallback((_) {
-                      Authentication.signout(context: context);
-                      Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => Signin()));
-                    });
+                    //ToDo: signout
 
                   },
                   child: Row(

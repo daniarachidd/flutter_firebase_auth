@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_auth/utils/authentication.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({Key? key}) : super(key: key);
@@ -10,7 +9,6 @@ class ResetPassword extends StatefulWidget {
 }
 
 class _ResetPasswordState extends State<ResetPassword> {
-  late String _email;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,11 +26,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                   hintText: 'Email'
               ),
 
-              onChanged: (value) {
-                setState(() {
-                  _email = value.trim();
-                });
-              },
+
             ),
           ),
           Container(
@@ -45,15 +39,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     )
                 ),
                 onPressed: () {
-                  Authentication.resetPassword(context, _email);
-                  Fluttertoast.showToast(
-                      msg: "A reset email has been sent to you",  // message
-                      toastLength: Toast.LENGTH_SHORT, // length
-                      gravity: ToastGravity.CENTER, // location
-
-                    timeInSecForIosWeb: 2,
-                  );
-                  Navigator.of(context).pop();
+                  //ToDo: resetPassword
                 },
                 child: Text(
                   'Request Reset',
