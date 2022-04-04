@@ -20,25 +20,23 @@ class Authentication {
 
     final GoogleSignInAccount? googleSignInAccount = await googleSignIn.signIn();
 
-    //if (googleSignInAccount != null) {
+    if (googleSignInAccount != null) {
       final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount!.authentication;
+      await googleSignInAccount!.authentication;
 
       final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleSignInAuthentication.accessToken,
-        idToken: googleSignInAuthentication.idToken
+          accessToken: googleSignInAuthentication.accessToken,
+          idToken: googleSignInAuthentication.idToken
       );
 
       try {
         final UserCredential userCredential =
-            await auth.signInWithCredential(credential);
+        await auth.signInWithCredential(credential);
 
 
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => HomePage()));
-
-
       } on FirebaseAuthException catch (e) {
         if (e.code == 'account-exists-with-different-credential') {
           //handle error
@@ -48,13 +46,11 @@ class Authentication {
           //handle error
           print('invalid credential');
         }
-
       } catch (e) {
         //handle error
         print('something else');
       }
-
-
+    }
 
   }
 

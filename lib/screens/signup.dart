@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_auth/utils/authentication.dart';
+
 
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-  late String _email, _password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,11 +35,7 @@ class _SignupState extends State<Signup> {
                   hintText: "example@gmail.com",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(32.0)))),
-            onChanged: (value) {
-              setState(() {
-                _email = value.trim();
-              });
-            },
+
             ),
             SizedBox(height: 20),
             TextField(
@@ -48,11 +44,7 @@ class _SignupState extends State<Signup> {
                   hintText: "Enter your password",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(32.0)))),
-            onChanged: (value) {
-                setState(() {
-                  _password = value.trim();
-                });
-            },
+
             ),
             SizedBox(height: 25),
             Container(
