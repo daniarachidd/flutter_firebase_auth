@@ -64,8 +64,7 @@ class _SignupState extends State<Signup> {
                     backgroundColor: MaterialStateProperty.all(Colors.black45),
                   ),
                   onPressed: () {
-                    //sign up with email
-                    Authentication.signup(context, _email, _password);
+                    //ToDo: signup
 
                   },
                   child: Row(

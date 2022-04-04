@@ -16,8 +16,7 @@ class _SigninState extends State<Signin> {
 
   @override
   void initState() {
-    //Authentication.initializeFirebase();
-    Authentication.checkSignedIn(context);
+    //ToDo: CheckSignedIn
     super.initState();
   }
   @override
@@ -48,8 +47,7 @@ class _SigninState extends State<Signin> {
                 backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
               ),
               onPressed: () {
-                Authentication.signinWithGoogle(context: context);
-                print('logged in with google');
+                //ToDo: signinWithGoogle
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -74,12 +72,7 @@ class _SigninState extends State<Signin> {
                   hintText: "example@gmail.com",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(32.0)))),
-            onChanged: (value) {
-                setState(() {
-                  _email = value.trim();
-                });
-            },
-            ),
+                        ),
             SizedBox(height: 20),
             TextField(
               obscureText: true,
@@ -87,11 +80,7 @@ class _SigninState extends State<Signin> {
                   hintText: "Enter your password",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(32.0)))),
-            onChanged: (value) {
-                setState(() {
-                  _password = value.trim();
-                });
-            },
+
             ),
             SizedBox(height: 10,),
             GestureDetector(
@@ -117,7 +106,7 @@ class _SigninState extends State<Signin> {
                     backgroundColor: MaterialStateProperty.all(Colors.black45),
                   ),
                   onPressed: () {
-                    Authentication.signin(context, _email, _password);
+                    //ToDo: Signin
                   },
                   child: Text(
                     'Sign In',

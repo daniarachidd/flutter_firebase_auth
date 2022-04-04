@@ -16,6 +16,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.black45,
         title: Text('Flutter Firebase Authentication'),
       ),
       body: Padding(
@@ -43,12 +45,7 @@ class _HomePageState extends State<HomePage> {
                     backgroundColor: MaterialStateProperty.all(Colors.black45),
                   ),
                   onPressed: () {
-                    //sign out
-                    SchedulerBinding.instance.addPostFrameCallback((_) {
-                      Authentication.signout(context: context);
-                      Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => Signin()));
-                    });
+                    //ToDo: signout
 
                   },
                   child: Row(

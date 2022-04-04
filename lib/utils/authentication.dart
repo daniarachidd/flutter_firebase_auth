@@ -11,6 +11,7 @@ class Authentication {
 
 
 
+  /**
   static void checkSignedIn(BuildContext context) {
     Authentication.initializeFirebase();
     //if logged in
@@ -21,11 +22,13 @@ class Authentication {
       );
     }
   }
+      **/
   static Future<FirebaseApp> initializeFirebase() async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
     return firebaseApp;
   }
 
+  /**
   static Future<void> signinWithGoogle({required BuildContext context}) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     GoogleSignIn googleSignIn = GoogleSignIn();
@@ -100,4 +103,5 @@ class Authentication {
     final auth = FirebaseAuth.instance;
     auth.sendPasswordResetEmail(email: email);
   }
+      **/
 }
