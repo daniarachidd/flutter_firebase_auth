@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_firebase_auth/screens/signin.dart';
-import 'package:flutter_firebase_auth/screens/signup.dart';
 import 'package:flutter_firebase_auth/utils/authentication.dart';
 
 class HomePage extends StatefulWidget {
