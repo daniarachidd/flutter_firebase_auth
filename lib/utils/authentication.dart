@@ -96,8 +96,5 @@ class Authentication {
     });
   }
 
-  static void resetPassword(BuildContext context, String email) {
-    final auth = FirebaseAuth.instance;
-    auth.sendPasswordResetEmail(email: email);
-  }
+
 }
