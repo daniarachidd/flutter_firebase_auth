@@ -1,8 +1,6 @@
-import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_auth/screens/homepage.dart';
+
 
 class VerifyScreen extends StatefulWidget {
   const VerifyScreen({Key? key}) : super(key: key);

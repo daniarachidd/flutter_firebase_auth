@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_auth/utils/authentication.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({Key? key}) : super(key: key);
@@ -10,7 +8,7 @@ class ResetPassword extends StatefulWidget {
 }
 
 class _ResetPasswordState extends State<ResetPassword> {
-  late String _email;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,11 +26,6 @@ class _ResetPasswordState extends State<ResetPassword> {
                   hintText: 'Email'
               ),
 
-              onChanged: (value) {
-                setState(() {
-                  _email = value.trim();
-                });
-              },
             ),
           ),
           Container(

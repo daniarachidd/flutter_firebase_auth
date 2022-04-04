@@ -11,7 +11,7 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
-  late String _email, _password;
+
 
 
   @override
@@ -73,11 +73,7 @@ class _SigninState extends State<Signin> {
                   hintText: "example@gmail.com",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(32.0)))),
-            onChanged: (value) {
-                setState(() {
-                  _email = value.trim();
-                });
-            },
+
             ),
             SizedBox(height: 20),
             TextField(
@@ -86,11 +82,7 @@ class _SigninState extends State<Signin> {
                   hintText: "Enter your password",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(32.0)))),
-            onChanged: (value) {
-                setState(() {
-                  _password = value.trim();
-                });
-            },
+
             ),
             SizedBox(height: 10,),
             GestureDetector(
