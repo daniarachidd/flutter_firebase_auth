@@ -16,8 +16,7 @@ class _SigninState extends State<Signin> {
 
   @override
   void initState() {
-    //Authentication.initializeFirebase();
-    Authentication.checkSignedIn(context);
+    //ToDo: checkSignedIn
     super.initState();
   }
   @override

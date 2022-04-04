@@ -9,18 +9,6 @@ import '../screens/verifyscreen.dart';
 
 class Authentication {
 
-
-
-  static void checkSignedIn(BuildContext context) {
-    Authentication.initializeFirebase();
-    //if logged in
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => HomePage())
-      );
-    }
-  }
   static Future<FirebaseApp> initializeFirebase() async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
     return firebaseApp;
@@ -96,8 +84,4 @@ class Authentication {
     });
   }
 
-  static void resetPassword(BuildContext context, String email) {
-    final auth = FirebaseAuth.instance;
-    auth.sendPasswordResetEmail(email: email);
-  }
 }
