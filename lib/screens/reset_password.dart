@@ -45,15 +45,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     )
                 ),
                 onPressed: () {
-                  Authentication.resetPassword(context, _email);
-                  Fluttertoast.showToast(
-                      msg: "A reset email has been sent to you",  // message
-                      toastLength: Toast.LENGTH_SHORT, // length
-                      gravity: ToastGravity.CENTER, // location
-
-                    timeInSecForIosWeb: 2,
-                  );
-                  Navigator.of(context).pop();
+                  //ToDo: resetPassword
                 },
                 child: Text(
                   'Request Reset',
