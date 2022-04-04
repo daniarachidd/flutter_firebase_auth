@@ -7,27 +7,33 @@ import 'package:flutter_firebase_auth/utils/authentication.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  var app =  Authentication.initializeFirebase();
+  //Authentication.initializeFirebase();
   runApp(const MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-
-
   @override
   Widget build(BuildContext context) {
-
-    return MaterialApp(
-      title: 'Flutter Firebase Authentication Tutorial',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const ResetPassword(),
-    );
+    return FutureBuilder(
+        future: Authentication.initializeFirebase(),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Text('Something went wrong');
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            return MaterialApp(
+              title: 'Flutter Firebase Authentication Tutorial',
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+              ),
+              home: const Signin(),
+            );
+          }
+          return CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.orange));
+        });
   }
-
 }

@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_auth/utils/authentication.dart';
 
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
@@ -8,10 +10,15 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  late String _email, _password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Flutter Firebase Authentication')),
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 10,
+        backgroundColor: Colors.black45,
+          title: Text('Flutter Firebase Authentication')),
       body: Padding(
         padding: const EdgeInsets.only(top: 40.0, left: 10, right: 10),
         child: Column(
@@ -19,7 +26,7 @@ class _SignupState extends State<Signup> {
             Center(
               child: Text(
                 'Registration',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
             SizedBox(height: 20),
@@ -28,6 +35,11 @@ class _SignupState extends State<Signup> {
                   hintText: "example@gmail.com",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(32.0)))),
+            onChanged: (value) {
+              setState(() {
+                _email = value.trim();
+              });
+            },
             ),
             SizedBox(height: 20),
             TextField(
@@ -36,56 +48,41 @@ class _SignupState extends State<Signup> {
                   hintText: "Enter your password",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(32.0)))),
+            onChanged: (value) {
+                setState(() {
+                  _password = value.trim();
+                });
+            },
             ),
             SizedBox(height: 25),
             Container(
-              width: 150,
+              padding: EdgeInsets.only(bottom: 0),
+              width: MediaQuery.of(context).size.width,
               height: 50,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15)
-                  )
-                ),
-                  onPressed: () {
-                  //
-                  },
-                  child: Text(
-                    'Sign Up',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                    ),
-                  )),
-            ),
-            SizedBox(height: 30,),
-
-            Container(
-              width: 150,
-              height: 50,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)
-                      )
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.black45),
                   ),
                   onPressed: () {
-                    //
+                    //sign up with email
+                    Authentication.signup(context, _email, _password);
+
                   },
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/google.png'),
                       Text(
-                        'Sign in with Google',
+                        'Sign up with email',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.white
                         ),
                       ),
                     ],
                   )),
             ),
+            SizedBox(height: 10,),
 
           ],
         ),
@@ -93,3 +90,4 @@ class _SignupState extends State<Signup> {
     );
   }
 }
+
