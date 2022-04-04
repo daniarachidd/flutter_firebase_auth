@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_auth/screens/reset_password.dart';
 import 'package:flutter_firebase_auth/screens/signup.dart';
-import 'package:flutter_firebase_auth/utils/authentication.dart';
+
 
 class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
@@ -11,8 +11,6 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
-  late String _email, _password;
-
 
   @override
   void initState() {
