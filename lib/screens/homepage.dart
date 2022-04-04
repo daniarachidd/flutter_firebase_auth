@@ -43,12 +43,7 @@ class _HomePageState extends State<HomePage> {
                     backgroundColor: MaterialStateProperty.all(Colors.black45),
                   ),
                   onPressed: () {
-                    //sign out
-                    SchedulerBinding.instance.addPostFrameCallback((_) {
-                      Authentication.signout(context: context);
-                      Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => Signin()));
-                    });
+                    //ToDo: signout
 
                   },
                   child: Row(

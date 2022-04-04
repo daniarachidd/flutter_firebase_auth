@@ -5,22 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../screens/homepage.dart';
-import '../screens/verifyscreen.dart';
+
 
 class Authentication {
 
-
-
-  static void checkSignedIn(BuildContext context) {
-    Authentication.initializeFirebase();
-    //if logged in
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => HomePage())
-      );
-    }
-  }
   static Future<FirebaseApp> initializeFirebase() async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
     return firebaseApp;
@@ -70,34 +58,5 @@ class Authentication {
 
   }
 
-  static Future<void> signout({required BuildContext context}) async {
-    await FirebaseAuth.instance.signOut();
-  }
 
-  static void signup(BuildContext context,String email, String password) {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    auth.createUserWithEmailAndPassword(
-        email: email, password: password)
-        .then((_) {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => VerifyScreen()));
-  });
-
-
-
-}
-
-  static void signin(BuildContext context, String email, String password) {
-    final auth = FirebaseAuth.instance;
-    auth.signInWithEmailAndPassword(email: email, password: password).then((_) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => HomePage())
-      );
-    });
-  }
-
-  static void resetPassword(BuildContext context, String email) {
-    final auth = FirebaseAuth.instance;
-    auth.sendPasswordResetEmail(email: email);
-  }
 }

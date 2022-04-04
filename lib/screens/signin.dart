@@ -16,8 +16,7 @@ class _SigninState extends State<Signin> {
 
   @override
   void initState() {
-    //Authentication.initializeFirebase();
-    Authentication.checkSignedIn(context);
+    //ToDo: checkSignedIn
     super.initState();
   }
   @override
@@ -117,7 +116,7 @@ class _SigninState extends State<Signin> {
                     backgroundColor: MaterialStateProperty.all(Colors.black45),
                   ),
                   onPressed: () {
-                    Authentication.signin(context, _email, _password);
+                    //ToDo: Signin
                   },
                   child: Text(
                     'Sign In',
