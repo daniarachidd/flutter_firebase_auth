@@ -12,24 +12,17 @@ class VerifyScreen extends StatefulWidget {
 }
 
 class _VerifyScreenState extends State<VerifyScreen> {
-  final auth = FirebaseAuth.instance;
-  User? user;
-  late Timer timer;
+
 
   @override
   void initState() {
-    user = auth.currentUser;
-    user!.sendEmailVerification();
-
-    timer = Timer.periodic(Duration(seconds: 5), (timer) {
-      checkEmailVerified();
-    });
+    //ToDo: check if email is verified
     super.initState();
   }
 
   @override
   void dispose() {
-    timer.cancel();
+    //ToDo: close timer
     super.dispose();
   }
 
@@ -44,19 +37,11 @@ class _VerifyScreenState extends State<VerifyScreen> {
 
       body: Center(
         child: Text(
-            'An email has been sent to ${user!.email} please verify'),
+            'Email verification'),
       ),
 
     );
   }
 
-  Future<void> checkEmailVerified() async {
-    user = auth.currentUser;
-    await user!.reload();
-    if (user!.emailVerified) {
-      timer.cancel();
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => HomePage()));
-    }
-  }
+
 }
